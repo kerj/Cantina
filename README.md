@@ -16,7 +16,7 @@ _This is a React webapp that utilizes client side routing, and styles by Materia
 
 ## Component Tree
 
-![Component Tree](https://imgur.com/GzA3XKI)
+![Component Tree](/tree.jpg?raw=true)
 
 
 ## Known Bugs
