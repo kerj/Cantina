@@ -12,7 +12,8 @@ const styles = makeStyles({
         border: "2px"
     },
     letters: {
-        color: '#2289dd'
+        color: '#2289dd',
+        listStyle: 'none'
     }
         
     
