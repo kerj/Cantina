@@ -5,24 +5,83 @@ const masterKegList = [
     {
         drinkType: 'Alcoholic',
         drinks: [
-            'Jawa Juice',
-            'Naboo Bug Juice',
-            'Tatooine Bug Juice',
-            'Juri Juice'
+            {
+                name: 'Jawa Juice',
+                brand: 'Star Brew',
+                price: '7',
+                alcoCon: '5.5%',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+
+            },
+            {
+                name: 'Naboo Bug Juice',
+                brand: 'Star Brew',
+                price: '3',
+                alcoCon: '5.5%',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+
+            },
+            {
+                name: 'Tatooine Bug Juice',
+                brand: 'Star Brew',
+                price: '2',
+                alcoCon: '5.5%',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+
+            },
+            {
+                name: 'Juri Juice',
+                brand: 'Star Brew',
+                price: '5',
+                alcoCon: '5.5%',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+            }
         ],
-        image: [
-            placeholder
-        ]
     },
     {
-        drinkType: 'Non-Alcohiolic',
+        drinkType: 'Non-Alcoholic',
         drinks: [
-            'Zoochberry Juice',
-            'Spacer Juice',
-            'Jaffa Cider'
-        ],
-        image: [
-            placeholder
+            {
+                name: 'Zoochberry Juice',
+                brand: 'Star Brew',
+                price: '3',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+
+            },
+            {
+                name: 'Spacer Juice',
+                brand: 'Star Brew',
+                price: '5',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+
+            },
+            {
+                name: 'Jaffa Cider',
+                brand: 'Star Brew',
+                price: '8',
+                remaining: 124,
+                image: [
+                    placeholder
+                ]
+            }
         ]
     }
       

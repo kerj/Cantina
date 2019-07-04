@@ -19,20 +19,27 @@ export default function Keg(props) {
             <hr/>
             <div className={classes.keg}>
              {props.drinks.map((drink, index) => {
-                if (index === props.drinks.length - 1) {
-                    return <div>
+                if (props.drinkType === 'Alcoholic') {
+                   return <div>
                             <ul>
-                                <li><strong>{props.drinks[index]}</strong></li>
+                                <li><strong>{props.drinks[index]['name']}</strong></li>
+                                <li>{props.drinks[index]['brand']}</li>
+                                <li>{props.drinks[index]['price']}</li>
+                                <li>{props.drinks[index]['alcoCon']}</li>
+                                <li>{props.drinks[index]['remaining']}</li>
                             </ul>
-                            <Link to='/'><img src={props.image[0]} alt="placeholder"/></Link>
-                            </div>;
+                            <Link to='/'><img src={props.drinks[index]['image']} alt="placeholder"/></Link>
+                        </div>;
                 } else {
                     return <div>
-                        <ul>
-                            <li><strong>{props.drinks[index]}</strong></li>
-                        </ul>
-                        <Link to='/'><img src={props.image[0]} alt="placeholder"/></Link>;
-                        </div>;
+                            <ul>
+                                <li><strong>{props.drinks[index]['name']}</strong></li>
+                                <li>{props.drinks[index]['brand']}</li>
+                                <li>{props.drinks[index]['price']}</li>
+                                <li>{props.drinks[index]['name']}</li>
+                            </ul>
+                            <Link to='/'><img src={props.drinks[index]['image']} alt="placeholder"/></Link>
+                            </div>;
                     }
                     }
                 )}
