@@ -5,7 +5,14 @@ import { makeStyles } from '@material-ui/core';
 
 const styles = makeStyles({
     keg: {
-        display: 'flex'
+        display: 'flex',
+        backgroundColor: 'whitesmoke',
+        opacity: ".3",
+        flexWrap: "wrap",
+        border: "2px"
+    },
+    letters: {
+        color: '#2289dd'
     }
         
     
@@ -20,13 +27,13 @@ export default function Keg(props) {
 
     return (
         <div>
-            <h1>{props.drinkType}</h1>
+            <h3 className={classes.letters}>{props.drinkType}</h3>
             <hr/>
             <div className={classes.keg}>
              {props.drinks.map((drink, index) => {
                 if (props.drinkType === 'Alcoholic') {
                    return <div>
-                                <ul>
+                                <ul className={classes.letters}>
                                     <li><strong>{props.drinks[index]['name']}</strong></li>
                                     <li>Brewery: {props.drinks[index]['brand']}</li>
                                     <li>Price: {props.drinks[index]['price']}</li>
@@ -38,7 +45,7 @@ export default function Keg(props) {
                             </div>;
                 } else{
                     return <div>
-                                <ul>
+                                <ul className={classes.letters}>
                                     <li><strong>{props.drinks[index]['name']}</strong></li>
                                     <li>Brewery: {props.drinks[index]['brand']}</li>
                                     <li>Price: {props.drinks[index]['price']}</li>

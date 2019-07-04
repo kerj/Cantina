@@ -1,8 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { makeStyles } from '@material-ui/core';
+
+const styles = makeStyles({
+    letters: {
+        display: 'flex',
+        color: '#2289dd',
+        justifyContent: 'center'
+    }  
+})
 
 export default function NewKegForm() {
+    const classes = styles();
     return (
-        <div>
+        <div className={classes.letters}>
             <form>
                 <label>Keg Name
                     <input type="text"/>
