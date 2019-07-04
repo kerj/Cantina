@@ -14,16 +14,32 @@ const styles = makeStyles({
 export default function Keg(props) {
     const classes = styles();
     return (
-        <div className={classes.keg}>
-            {props.drinks.map((drink, index) => {
-                if (index === props.drinks.length -1) {
-                    return <Link to='/'><img src={props.image[0]} alt="placeholder"/>{drink.drinks}</Link>;
+        <div>
+            <h1>{props.drinkType}</h1>
+            <hr/>
+            <div className={classes.keg}>
+             {props.drinks.map((drink, index) => {
+                if (index === props.drinks.length - 1) {
+                    return <div>
+                            <ul>
+                                <li><strong>{props.drinks[index]}</strong></li>
+                            </ul>
+                            <Link to='/'><img src={props.image[0]} alt="placeholder"/></Link>
+                            </div>;
                 } else {
-                    return <Link to='/'><img src={props.image[0]} alt="placeholder"/>{drink.drinks}</Link>;
-                }
-            }
-            )}
+                    return <div>
+                        <ul>
+                            <li><strong>{props.drinks[index]}</strong></li>
+                        </ul>
+                        <Link to='/'><img src={props.image[0]} alt="placeholder"/></Link>;
+                        </div>;
+                    }
+                    }
+                )}
+            </div>
+
         </div>
+       
     )
 }
 
