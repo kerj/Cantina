@@ -16,6 +16,7 @@ function App() {
   return (
     <div>
       <Header/>
+        
       <Switch>
         <Route exact path='/' component={KegList}/>
         <Route path='/newKeg' component={NewKegForm}/>
