@@ -16,7 +16,7 @@ _This is a React webapp that utilizes client side routing, and styles by Materia
 
 ## Component Tree
 
-![Component Tree](https://imgur.com/a/FAfSOWx)
+![Component Tree](https://imgur.com/GzA3XKI)
 
 
 ## Known Bugs
@@ -29,7 +29,7 @@ _kerntzj@gmail.com for ?'s_
 
 ## Technologies Used
 
-_Utilizes: React and Material UI _
+_Utilizes: React and Material UI_
 
 ### License
 
