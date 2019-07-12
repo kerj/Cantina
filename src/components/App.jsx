@@ -126,6 +126,10 @@ export default class App extends Component {
 
   handleRemovePint(keg){
     keg.remaining--;
+    if (keg.remaining <= 0 ){
+      alert('sold out');
+      keg.remaining++
+    }
     this.setState(this.state.masterKegList);
   }
 

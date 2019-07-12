@@ -2,7 +2,7 @@ import React from 'react'
 import Keg from './Keg';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
-import Footer from './Footer';
+import Employee from './Employee';
 
 const styles = makeStyles({
     drinkHeader: {
@@ -30,7 +30,7 @@ export default function KegList(props) {
                 </div>
                 )}
             <div>
-                <Footer/>
+                <Employee/>
             </div>
         </div>
     );
