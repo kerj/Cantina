@@ -139,7 +139,7 @@ export default class App extends Component {
         <Header/>
         <Switch>
           <Route exact path='/' render={()=> <KegList onRemovePint={this.handleRemovePint} kegList={this.state.masterKegList.drinks}/> }/>
-          <Route path='/newkeg' component={NewKegForm}/>
+          <Route path='/newkeg' render={()=> <NewKegControl onAddingNewKeg={this.handleAddingNewKeg}/>}/>
           <Route path='/about' component={About}/>
         </Switch>
       </div>

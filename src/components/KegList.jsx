@@ -29,9 +29,6 @@ export default function KegList(props) {
                     <button onClick={() => props.onRemovePint(keg)}>Buy a pint</button>
                 </div>
                 )}
-            <div>
-                <Employee/>
-            </div>
         </div>
     );
 }

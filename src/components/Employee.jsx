@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Footer(props) {
+export default function Employee(props) {
     let User = 'Admin'
     let Password = 'password123';
     let inputUser = null;
@@ -9,7 +9,8 @@ export default function Footer(props) {
 
     function handleEmployeeLoginAttempt(e){
         e.preventDefault();
-        if( Password === inputPassword.value && User === inputUser.value){
+        
+        if(Password === inputPassword.value && User === inputUser.value){
             props.onEmployeeLogin();
             password.value = '';
             user.value = '';
@@ -19,6 +20,7 @@ export default function Footer(props) {
         }
     }
     return (
+        
         <div>
             <h4>Employee Login</h4>
             <form onSubmit={handleEmployeeLoginAttempt}>
@@ -41,6 +43,6 @@ export default function Footer(props) {
     )
 }
 
-Footer.propTypes = {
+Employee.propTypes = {
     onEmployeeLogin: PropTypes.func
 }

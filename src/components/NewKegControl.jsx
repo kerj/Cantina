@@ -1,6 +1,7 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 import NewKegForm from './NewKegForm';
 import PropTypes from 'prop-types';
+import Employee from './Employee';
 
 export default class NewKegControl extends Component {
 
@@ -12,16 +13,18 @@ export default class NewKegControl extends Component {
         this.handleEmployeeConfirm = this.handleEmployeeConfirm.bind(this);
     }
 
-    handleEmployeeConfirmn(){
+    handleEmployeeConfirm(){
+        console.log(this);
+        
         this.setState({canAddKeg:true});
     }
 
     render(){
         let currentUserView = null;
         if (this.state.canAddKeg){
-            currentUserView = <NewKegForm onNewKegCreate={this.props.onNewKegCreate}/>;
+            currentUserView = <NewKegForm onNewKegCreate={this.props.onAddingNewKeg}/>;
         } else {
-            currentUserView = <KegList onEmployeeConfirm={this.handleEmployeeConfirm}/>;
+            currentUserView = <Employee onEmployeeLogin={this.handleEmployeeConfirm}/>;
         }
         return(
             <div>
@@ -32,5 +35,5 @@ export default class NewKegControl extends Component {
 }
 
 NewKegControl.propTypes = {
-    onEmployeeConfirm: PropTypes.func
+    onAddingNewKeg: PropTypes.func
 }
