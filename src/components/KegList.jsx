@@ -17,7 +17,7 @@ export default function KegList(props) {
         <div>
             <h1>Drink Menu</h1>
             {props.kegList.map((keg) =>
-                <div>
+                <div key={v4()}>
                     <Keg
                         name={keg.name}
                         brand={keg.brand}
@@ -25,7 +25,6 @@ export default function KegList(props) {
                         alcoCon={keg.alcoCon}
                         remaining={keg.remaining}
                         image={keg.image}
-                        key={v4()}
                     />
                     <button onClick={() => props.onRemovePint(keg)}>Buy a pint</button>
                 </div>
