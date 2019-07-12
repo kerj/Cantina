@@ -1,17 +1,19 @@
 import React from 'react'
 import placeholder from '../img/placeholder.png';
 import Keg from './Keg';
+import PropTypes from 'prop-types';
 
 var masterKegList = [
     {
-        drinkType: 'Alcoholic',
         drinks: [
             {
                 name: 'Jawa Juice',
+                drinkType: 'alcoholic',
                 brand: 'Star Brew',
                 price: '7',
                 alcoCon: '5.5%',
                 remaining: 124,
+                id: 1,
                 image: [
                     placeholder
                 ]
@@ -19,10 +21,12 @@ var masterKegList = [
             },
             {
                 name: 'Naboo Bug Juice',
+                drinkType: 'alcoholic',
                 brand: 'Star Brew',
                 price: '3',
                 alcoCon: '5.5%',
                 remaining: 124,
+                id: 2,
                 image: [
                     placeholder
                 ]
@@ -30,10 +34,12 @@ var masterKegList = [
             },
             {
                 name: 'Tatooine Bug Juice',
+                drinkType: 'alcoholic',
                 brand: 'Star Brew',
                 price: '2',
                 alcoCon: '5.5%',
                 remaining: 124,
+                id: 3,
                 image: [
                     placeholder
                 ]
@@ -41,24 +47,24 @@ var masterKegList = [
             },
             {
                 name: 'Juri Juice',
+                drinkType: 'alcoholic',
                 brand: 'Star Brew',
                 price: '5',
                 alcoCon: '5.5%',
                 remaining: 124,
+                id: 4,
                 image: [
                     placeholder
                 ]
-            }
-        ],
-    },
-    {
-        drinkType: 'Non-Alcoholic',
-        drinks: [
+            },
             {
                 name: 'Zoochberry Juice',
+                drinkType: 'Non-Alcoholic',
                 brand: 'Star Brew',
                 price: '3',
+                alcoCon: 'None',
                 remaining: 124,
+                id: 5,
                 image: [
                     placeholder
                 ]
@@ -66,9 +72,12 @@ var masterKegList = [
             },
             {
                 name: 'Spacer Juice',
+                drinkType: 'Non-Alcoholic',
                 brand: 'Star Brew',
                 price: '5',
+                alcoCon: 'None',
                 remaining: 124,
+                id: 6,
                 image: [
                     placeholder
                 ]
@@ -76,9 +85,12 @@ var masterKegList = [
             },
             {
                 name: 'Jaffa Cider',
+                drinkType: 'Non-Alcoholic',
                 brand: 'Star Brew',
                 price: '8',
+                alcoCon: 'None',
                 remaining: 124,
+                id: 7,
                 image: [
                     placeholder
                 ]
@@ -91,16 +103,17 @@ var masterKegList = [
 
 
 
-export default function KegList() {
+export default function KegList(props) {
   
     return (
         <div>
-            {masterKegList.map((keg, index) => 
+            <h1>Regular Rotation</h1>
+            {masterKegList.map((keg) => 
                 <Keg
                 drinkType={keg.drinkType}
                 drinks={keg.drinks}
                 image={keg.image}
-                key={index}
+                key={keg.id}
                 />
             )}
         </div>

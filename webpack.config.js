@@ -65,7 +65,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template:'template.ejs',
             appMountId: 'react-app-root',
-            title: 'react Help Queue',
+            title: 'Jek Jek Tar',
             filename: resolve(__dirname, "build", "index.html"),
         }),
     ]

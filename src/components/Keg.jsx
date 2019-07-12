@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core';
+import { v4 } from 'uuid';
 
 const styles = makeStyles({
     keg: {
@@ -31,33 +32,17 @@ export default function Keg(props) {
             <h3 className={classes.letters}>{props.drinkType}</h3>
             <hr/>
             <div className={classes.keg}>
-             {props.drinks.map((drink, index) => {
-                if (props.drinkType === 'Alcoholic') {
-                   return <div>
-                                <ul className={classes.letters}>
-                                    <li><strong>{props.drinks[index]['name']}</strong></li>
-                                    <li>Brewery: {props.drinks[index]['brand']}</li>
-                                    <li>Price: {props.drinks[index]['price']}</li>
-                                    <li>Aclohol Content: {props.drinks[index]['alcoCon']}</li>
-                                    <li>Remaining Pints: {props.drinks[index]['remaining']}</li>
-                                    <button onClick={removePint(props.drinks[index]['remaining'])}>Buy!</button>
-                                </ul>
-                            <Link to='/'><img src={props.drinks[index]['image']} alt="placeholder"/></Link>
-                            </div>;
-                } else{
-                    return <div>
-                                <ul className={classes.letters}>
-                                    <li><strong>{props.drinks[index]['name']}</strong></li>
-                                    <li>Brewery: {props.drinks[index]['brand']}</li>
-                                    <li>Price: {props.drinks[index]['price']}</li>
-                                    <li>Remaining Pints: {props.drinks[index]['remaining']}</li>
-                                    <button onClick={removePint(props.drinks[index]['remaining'])}>Buy!</button>
-                                </ul>
-                            <Link to='/'><img src={props.drinks[index]['image']} alt="placeholder"/></Link>
-                            </div>;
-                        }
-                    }
-                )}
+                 <div>
+                    <ul className={classes.letters}>
+                        <li><strong>{props.drinks['name']}</strong></li>
+                        <li>Brewery: {props.drinks['brand']}</li>
+                        <li>Price: {props.drinks['price']}</li>
+                        <li>Aclohol Content: {props.drinks['alcoCon']}</li>
+                        <li>Remaining Pints: {props.drinks['remaining']}</li>
+                        <button onClick={removePint(props.drinks['remaining'])}>Buy!</button>
+                    </ul>
+                <Link to='/'><img src={props.drinks['image']} alt="placeholder"/></Link>
+                </div>
             </div>
 
         </div>
@@ -66,7 +51,5 @@ export default function Keg(props) {
 }
 
 Keg.propTypes = {
-    drinkType: PropTypes.string.isRequired,
     drinks: PropTypes.array.isRequired,
-    image: PropTypes.array.isRequired
 }
