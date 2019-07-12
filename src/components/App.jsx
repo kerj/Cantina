@@ -3,9 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import KegList from './KegList';
-import NewKegForm from './NewKegForm';
 import About from './About';
-import Background from '../img/download.png';
 import NewKegControl from './NewKegControl';
 import placeholder from '../img/placeholder.png';
 
@@ -36,10 +34,7 @@ export default class App extends Component {
             alcoCon: '5.5%',
             remaining: 124,
             id: 1,
-            image: [
-                placeholder
-            ]
-
+            image: placeholder
         },
         {
             name: 'Naboo Bug Juice',
@@ -48,10 +43,7 @@ export default class App extends Component {
             alcoCon: '5.5%',
             remaining: 124,
             id: 2,
-            image: [
-                placeholder
-            ]
-
+            image: placeholder
         },
         {
             name: 'Tatooine Bug Juice',
@@ -60,10 +52,7 @@ export default class App extends Component {
             alcoCon: '5.5%',
             remaining: 124,
             id: 3,
-            image: [
-                placeholder
-            ]
-
+            image: placeholder
         },
         {
             name: 'Juri Juice',
@@ -72,9 +61,7 @@ export default class App extends Component {
             alcoCon: '5.5%',
             remaining: 124,
             id: 4,
-            image: [
-                placeholder
-            ]
+            image: placeholder
         },
         {
             name: 'Zoochberry Juice',
@@ -83,10 +70,7 @@ export default class App extends Component {
             alcoCon: 'None',
             remaining: 124,
             id: 5,
-            image: [
-                placeholder
-            ]
-
+            image: placeholder
         },
         {
             name: 'Spacer Juice',
@@ -95,10 +79,7 @@ export default class App extends Component {
             alcoCon: 'None',
             remaining: 124,
             id: 6,
-            image: [
-                placeholder
-            ]
-
+            image: placeholder
         },
         {
             name: 'Jaffa Cider',
@@ -107,9 +88,7 @@ export default class App extends Component {
             alcoCon: 'None',
             remaining: 124,
             id: 7,
-            image: [
-                placeholder
-            ]
+            image: placeholder
         }
       ] 
     }
@@ -121,7 +100,18 @@ export default class App extends Component {
   handleAddingNewKeg(newKeg){
     var newMasterKegList = this.state.masterKegList.drinks.slice();   
     newMasterKegList.push(newKeg);
-    this.setState({masterKegList: newMasterKegList});
+    /*Chrome does not yet support spread? */
+    // this.setState(stateToUpdate => ({
+    //   newState:{
+    //     ...stateToUpdate.newState,
+    //     drinks: newMasterKegList
+    //   }
+    // }))
+    this.setState(stateToUpdate => {
+      let newState = Object.assign({}, stateToUpdate.newState);
+      newState.drinks = newMasterKegList;
+      return{newState}
+    })
   }
 
   handleRemovePint(keg){

@@ -2,7 +2,8 @@ import React from 'react'
 import Keg from './Keg';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
-import Employee from './Employee';
+
+
 
 const styles = makeStyles({
     drinkHeader: {

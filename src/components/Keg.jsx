@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import placeholder from '../img/placeholder.png';
 
 
 const styles = makeStyles({
@@ -23,6 +24,7 @@ export default function Keg(props) {
         <div>
             <hr/>
             <ul className={classes.letters}>
+                <img src={placeholder} alt=""/>
                 <li><strong>{props['name']}</strong></li>
                 <li>Brewery: {props['brand']}</li>
                 <li>Price: {props['price']}</li>
@@ -39,5 +41,7 @@ Keg.propTypes = {
     brand: PropTypes.string,
     price: PropTypes.string,
     alcoCon: PropTypes.string,
-    remaining: PropTypes.number
+    remaining: PropTypes.number,
+    id: PropTypes.string,
+    image: PropTypes.string
 }
