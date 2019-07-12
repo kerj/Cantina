@@ -17,8 +17,10 @@ export default function KegList(props) {
             <h1>Drink Menu</h1>
             {props.kegList.map((keg) =>
                 {   
+                    console.log(keg.name);
+                    
                     <Keg 
-                    name={keg.brand} 
+                    name={keg.name} 
                     brand={keg.brand} 
                     price={keg.price}
                     alcoCon={keg.alcoCon} 
