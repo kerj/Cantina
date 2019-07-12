@@ -6,6 +6,7 @@ import KegList from './KegList';
 import About from './About';
 import NewKegControl from './NewKegControl';
 import placeholder from '../img/placeholder.png';
+import { v4 } from 'uuid';
 
 // const styles = makeStyles({
 //   head: {
@@ -33,7 +34,7 @@ export default class App extends Component {
             price: '7',
             alcoCon: '5.5%',
             remaining: 124,
-            id: 1,
+            id: v4(),
             image: placeholder
         },
         {
@@ -42,7 +43,7 @@ export default class App extends Component {
             price: '3',
             alcoCon: '5.5%',
             remaining: 124,
-            id: 2,
+            id: v4(),
             image: placeholder
         },
         {
@@ -51,7 +52,7 @@ export default class App extends Component {
             price: '2',
             alcoCon: '5.5%',
             remaining: 124,
-            id: 3,
+            id: v4(),
             image: placeholder
         },
         {
@@ -60,7 +61,7 @@ export default class App extends Component {
             price: '5',
             alcoCon: '5.5%',
             remaining: 124,
-            id: 4,
+            id: v4(),
             image: placeholder
         },
         {
@@ -69,7 +70,7 @@ export default class App extends Component {
             price: '3',
             alcoCon: 'None',
             remaining: 124,
-            id: 5,
+            id: v4(),
             image: placeholder
         },
         {
@@ -78,7 +79,7 @@ export default class App extends Component {
             price: '5',
             alcoCon: 'None',
             remaining: 124,
-            id: 6,
+            id: v4(),
             image: placeholder
         },
         {
@@ -87,11 +88,12 @@ export default class App extends Component {
             price: '8',
             alcoCon: 'None',
             remaining: 124,
-            id: 7,
+            id: v4(),
             image: placeholder
         }
       ] 
-    }
+    },
+
     };
     this.handleAddingNewKeg = this.handleAddingNewKeg.bind(this);
     this.handleRemovePint =this.handleRemovePint.bind(this);
@@ -107,11 +109,14 @@ export default class App extends Component {
     //     drinks: newMasterKegList
     //   }
     // }))
-    this.setState(stateToUpdate => {
-      let newState = Object.assign({}, stateToUpdate.newState);
-      newState.drinks = newMasterKegList;
-      return{newState}
+    this.setState(prevState => {
+      let masterKegList = Object.assign({}, prevState.masterKegList);
+      masterKegList.drinks = newMasterKegList;
+      return{masterKegList}
     })
+
+    console.log(this.state.masterKegList);
+    
   }
 
   handleRemovePint(keg){
