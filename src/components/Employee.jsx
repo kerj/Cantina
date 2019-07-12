@@ -7,37 +7,37 @@ export default function Employee(props) {
     let inputUser = null;
     let inputPassword = null;
 
-    function handleEmployeeLoginAttempt(e){
+    function handleEmployeeLoginAttempt(e) {
         e.preventDefault();
-        
-        if(Password === inputPassword.value && User === inputUser.value){
+
+        if (Password === inputPassword.value && User === inputUser.value) {
             props.onEmployeeLogin();
             password.value = '';
             user.value = '';
-        }else {
+        } else {
             password.value = '';
             user.value = '';
         }
     }
     return (
-        
+
         <div>
             <h4>Employee Login</h4>
             <form onSubmit={handleEmployeeLoginAttempt}>
-            <input 
-            id='user'
-            placeholder="Username"
-            type="text"
-            ref={(input) => {inputUser = input;}}
-            />
+                <input
+                    id='user'
+                    placeholder="Username"
+                    type="text"
+                    ref={(input) => { inputUser = input; }}
+                />
 
-            <input 
-            id='password'
-            placeholder="password" 
-            type="text"
-            ref={(input) => {inputPassword = input;}}
-            />
-            <button type="submit">Login</button>
+                <input
+                    id='password'
+                    placeholder="password"
+                    type="text"
+                    ref={(input) => { inputPassword = input; }}
+                />
+                <button type="submit">Login</button>
             </form>
         </div>
     )

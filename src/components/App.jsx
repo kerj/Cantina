@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import KegList from './KegList';
 import About from './About';
-import NewKegControl from './NewKegControl';
+import KegControl from './KegControl';
 import placeholder from '../img/placeholder.png';
 import { v4 } from 'uuid';
 
@@ -23,12 +23,12 @@ import { v4 } from 'uuid';
 
 export default class App extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      masterKegList: {    
+      masterKegList: {
         drinks: [
-        {
+          {
             name: 'Jawa Juice',
             brand: 'Star Brew',
             price: '7',
@@ -36,8 +36,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Naboo Bug Juice',
             brand: 'Star Brew',
             price: '3',
@@ -45,8 +45,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Tatooine Bug Juice',
             brand: 'Star Brew',
             price: '2',
@@ -54,8 +54,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Juri Juice',
             brand: 'Star Brew',
             price: '5',
@@ -63,8 +63,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Zoochberry Juice',
             brand: 'Star Brew',
             price: '3',
@@ -72,8 +72,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Spacer Juice',
             brand: 'Star Brew',
             price: '5',
@@ -81,8 +81,8 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        },
-        {
+          },
+          {
             name: 'Jaffa Cider',
             brand: 'Star Brew',
             price: '8',
@@ -90,17 +90,17 @@ export default class App extends Component {
             remaining: 124,
             id: v4(),
             image: placeholder
-        }
-      ] 
-    },
+          }
+        ]
+      },
 
     };
     this.handleAddingNewKeg = this.handleAddingNewKeg.bind(this);
-    this.handleRemovePint =this.handleRemovePint.bind(this);
-  } 
+    this.handleRemovePint = this.handleRemovePint.bind(this);
+  }
 
-  handleAddingNewKeg(newKeg){
-    var newMasterKegList = this.state.masterKegList.drinks.slice();   
+  handleAddingNewKeg(newKeg) {
+    var newMasterKegList = this.state.masterKegList.drinks.slice();
     newMasterKegList.push(newKeg);
     /*Chrome does not yet support spread? */
     // this.setState(stateToUpdate => ({
@@ -112,28 +112,28 @@ export default class App extends Component {
     this.setState(prevState => {
       let masterKegList = Object.assign({}, prevState.masterKegList);
       masterKegList.drinks = newMasterKegList;
-      return{masterKegList}
+      return { masterKegList }
     })
-    
+
   }
 
-  handleRemovePint(keg){
+  handleRemovePint(keg) {
     keg.remaining--;
-    if (keg.remaining <= 0 ){
+    if (keg.remaining <= 0) {
       alert('sold out');
       keg.remaining++
     }
     this.setState(this.state.masterKegList);
   }
 
-  render(){
+  render() {
     return (
       <div>
-        <Header/>
+        <Header />
         <Switch>
-          <Route exact path='/' render={()=> <KegList onRemovePint={this.handleRemovePint} kegList={this.state.masterKegList.drinks}/> }/>
-          <Route path='/newkeg' render={()=> <NewKegControl onAddingNewKeg={this.handleAddingNewKeg}/>}/>
-          <Route path='/about' component={About}/>
+          <Route exact path='/' render={() => <KegList onRemovePint={this.handleRemovePint} kegList={this.state.masterKegList.drinks} />} />
+          <Route path='/newkeg' render={() => <KegControl onAddingNewKeg={this.handleAddingNewKeg} />} />
+          <Route path='/about' component={About} />
         </Switch>
       </div>
     );

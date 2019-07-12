@@ -13,18 +13,18 @@ export default class NewKegControl extends Component {
         this.handleEmployeeConfirm = this.handleEmployeeConfirm.bind(this);
     }
 
-    handleEmployeeConfirm(){
-        this.setState({canAddKeg:true});
+    handleEmployeeConfirm() {
+        this.setState({ canAddKeg: true });
     }
 
-    render(){
+    render() {
         let currentUserView = null;
-        if (this.state.canAddKeg){
-            currentUserView = <NewKegForm onAddingNewKeg={this.props.onAddingNewKeg}/>;
+        if (this.state.canAddKeg) {
+            currentUserView = <NewKegForm onAddingNewKeg={this.props.onAddingNewKeg} />;
         } else {
-            currentUserView = <Employee onEmployeeLogin={this.handleEmployeeConfirm}/>;
+            currentUserView = <Employee onEmployeeLogin={this.handleEmployeeConfirm} />;
         }
-        return(
+        return (
             <div>
                 {currentUserView}
             </div>

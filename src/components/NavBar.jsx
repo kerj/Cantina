@@ -8,36 +8,36 @@ import Typography from '@material-ui/core/Typography';
 import PropTypes from 'prop-types';
 
 function NavBar(props) {
-    return (
-      <Typography component="div" style={{ padding: 8 * 3 }}>
-        {props.children}
-      </Typography>
-    );
-  }
-  
-  NavBar.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-  
-
-  
-  export default function SimpleTabs() {
-    const [value, setValue] = React.useState(0);
-  
-    function handleChange(event, newValue) {
-      setValue(newValue);
-    }
-
-    return(
-        <div class="nav">
-        <AppBar position="static" className="fb-row">
-            <Tabs value={value} onChange={handleChange}>
-                <Tab label="Home" component={Link} to="/"/>
-                <Tab label="Add New Keg" component={Link} to="/newkeg"/>
-                <Tab label="About us" component={Link} to="/about"/> 
-            </Tabs>
-        </AppBar>
-        </div>
-  
-    );
+  return (
+    <Typography component="div" style={{ padding: 8 * 3 }}>
+      {props.children}
+    </Typography>
+  );
 }
+
+
+
+export default function SimpleTabs() {
+  const [value, setValue] = React.useState(0);
+
+  function handleChange(event, newValue) {
+    setValue(newValue);
+  }
+
+  return (
+    <div>
+      <AppBar position="static" className="fb-row">
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="Home" component={Link} to="/" />
+          <Tab label="Add New Keg" component={Link} to="/newkeg" />
+          <Tab label="About us" component={Link} to="/about" />
+        </Tabs>
+      </AppBar>
+    </div>
+
+  );
+}
+
+NavBar.propTypes = {
+  children: PropTypes.node.isRequired,
+};

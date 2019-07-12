@@ -28,10 +28,10 @@ export default function NewKegForm(props) {
         AlcoholContent.value = "";
         Price.value = "";
     }
-
     return (
         <div className={classes.letters}>
             <form onSubmit={handleNewKegFormSubmit}> 
+                <h3>Add a Keg</h3>
                 <label>Keg Name
                     <input
                     id='name'
@@ -62,6 +62,8 @@ export default function NewKegForm(props) {
                 </label><br/>
             <button type='submit'>Add Keg to Rotation</button>
             </form>
+            <h3>Edit A Keg</h3>
+
         </div>
     )
 }
