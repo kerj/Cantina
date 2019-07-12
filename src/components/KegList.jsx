@@ -1,8 +1,8 @@
 import React from 'react'
-import placeholder from '../img/placeholder.png';
 import Keg from './Keg';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
+import Footer from './Footer';
 
 const styles = makeStyles({
     drinkHeader: {
@@ -15,10 +15,8 @@ export default function KegList(props) {
     return (
         <div>
             <h1>Drink Menu</h1>
-            {props.kegList.map((keg) =>
-                {   
-                    console.log(keg.name);
-                    
+            {props.kegList.map((keg) => 
+                <div>
                     <Keg 
                     name={keg.name} 
                     brand={keg.brand} 
@@ -28,15 +26,17 @@ export default function KegList(props) {
                     image={keg.image}
                     key={keg.id}
                     />
-                }
-                )}
-                <div>
-                    <Footer/>
+                    <button onClick={() => props.onRemovePint(keg)}>Buy a pint</button>
                 </div>
+                )}
+            <div>
+                <Footer/>
+            </div>
         </div>
     );
 }
 
 KegList.propTypes = {
-    kegList: PropTypes.array
+    kegList: PropTypes.array,
+    onRemovePint: PropTypes.func
 }

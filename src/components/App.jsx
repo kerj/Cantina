@@ -115,6 +115,7 @@ export default class App extends Component {
     }
     };
     this.handleAddingNewKeg = this.handleAddingNewKeg.bind(this);
+    this.handleRemovePint =this.handleRemovePint.bind(this);
   } 
 
   handleAddingNewKeg(newKeg){
@@ -123,12 +124,17 @@ export default class App extends Component {
     this.setState({masterKegList: newMasterKegList});
   }
 
+  handleRemovePint(keg){
+    keg.remaining--;
+    this.setState(this.state.masterKegList);
+  }
+
   render(){
     return (
       <div>
         <Header/>
         <Switch>
-          <Route exact path='/' render={()=> <KegList kegList={this.state.masterKegList.drinks}/> }/>
+          <Route exact path='/' render={()=> <KegList onRemovePint={this.handleRemovePint} kegList={this.state.masterKegList.drinks}/> }/>
           <Route path='/newkeg' component={NewKegForm}/>
           <Route path='/about' component={About}/>
         </Switch>
