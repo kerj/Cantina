@@ -22,7 +22,7 @@ export default function NewKegForm(props) {
 
     function handleNewKegFormSubmit(e){
         e.preventDefault();
-        props.onAddingNewKeg({name: Name.value, brand: Brand.value, alcoholContent: AlcoholContent.value, price: Price.value, remaining: 124, id: v4(), image: placeholder});
+        props.onAddingNewKeg({name: Name.value, brand: Brand.value, alcoCon: AlcoholContent.value, price: Price.value, remaining: 124, id: v4(), image: placeholder});
         Name.value = "";
         Brand.value=  "";
         AlcoholContent.value = "";
@@ -48,7 +48,7 @@ export default function NewKegForm(props) {
                 </label><br/>
                 <label>Keg Alcohol Content
                     <input 
-                    id='alcoholContent'
+                    id='alcoCon'
                     ref={(input) => {AlcoholContent = input;}}
                     type="text"
                     />

@@ -114,8 +114,6 @@ export default class App extends Component {
       masterKegList.drinks = newMasterKegList;
       return{masterKegList}
     })
-
-    console.log(this.state.masterKegList);
     
   }
 
